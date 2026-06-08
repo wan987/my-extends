@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "书签收藏扩展插件",
+  "version": "0.0.1",
+  "description": "书签收藏功能扩展",
+  "author": "fengfeng",
+  "permissions": [
+    "bookmarks",
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "64": "icon.png",
+      "128": "icon.png"
+    },
+    "default_popup": "popups/popup.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "64": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "utils/contentExtractor.js",
+        "utils/contentCleaner.js",
+        "contents/content.js"
+      ],
+      "css": [],
+      "run_at": "document_end"
+    }
+  ],
+  "options_ui":{
+    "page": "options/option.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "mind-map-main/index.html",
+      "mind-map-main/init.js",
+      "mind-map-main/dist/**"
+    ],
+    "matches": ["<all_urls>"]
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

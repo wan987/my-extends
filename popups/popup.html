@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>已收藏</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="header">
+        <h1>正在收藏</h1>
+    </div>
+
+    <div id="bookmarkContent" class="bookmark-info">
+        <div class="loading">正在加载...</div>
+    </div>
+
+    <!-- 标签编辑对话框 -->
+    <div id="tagsEditDialog" class="tags-edit-dialog" style="display: none;">
+        <div class="tags-edit-overlay"></div>
+        <div class="tags-edit-content">
+            <div class="tags-edit-header">
+                <h3>编辑标签</h3>
+                <button class="tags-edit-close">×</button>
+            </div>
+            <div class="tags-edit-body">
+                <div class="tags-edit-hint">输入标签，以 # 开头，空格分隔（例如：#工作 #重要）</div>
+                <input type="text" class="tags-edit-input" id="tagsEditInput" placeholder="#标签1 #标签2">
+                <div class="tags-edit-preview" id="tagsEditPreview"></div>
+            </div>
+            <div class="tags-edit-actions">
+                <button class="tags-edit-btn cancel">取消</button>
+                <button class="tags-edit-btn save">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
